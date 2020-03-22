@@ -1,5 +1,24 @@
-<h1>Welcome to Account page</h1>
+<h1>View Your Account Statement</h1>
 Select Account
 <select>
   <option *ngFor="let account of accounts"> {{account}} </option>
 </select>
+
+<table>
+  <thead>
+    <td>Date</td>
+    <td>Transaction Details</td>
+    <td>Value Date</td>
+    <td>Withdrawal AMT</td>
+    <td>Deposit AMT</td>
+    <td>Balance AMT</td>
+  </thead>
+  <tr *ngFor="let account of accountDetails">
+    <td>{{account['Date']}}</td>
+    <td>{{account['Transaction Details']}}</td>
+    <td>{{account['Value Date']}}</td>
+    <td>{{account['Withdrawal AMT']}}</td>
+    <td>{{account['Deposit AMT']}}</td>
+    <td>{{account['Balance AMT']}}</td>
+  </tr>
+</table>

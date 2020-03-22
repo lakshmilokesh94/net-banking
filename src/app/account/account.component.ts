@@ -11,6 +11,15 @@ export class AccountComponent {
   accounts = [];
   constructor(private dataSvc: AccountDataService) {}
 
+  getAccounts() {
+    this.accounts = this.accountDetails.map(detail => {
+      return detail["Account No"];
+    });
+    this.accounts = this.accounts.filter((account, index) => {
+      return this.accounts.indexOf(account) === index;
+    });
+  }
+
   ngOnInit() {
     // this.dataSvc.getAllAccountDetails().subscribe(response => {
     //   this.accountDetails = response;
@@ -18,11 +27,6 @@ export class AccountComponent {
     // });
 
     this.accountDetails = this.dataSvc.getAllDetails();
-    this.accounts = this.accountDetails.map(detail => {
-      return detail["Account No"];
-    });
-    this.accounts = this.accounts.filter((account, index) => {
-      return this.accounts.indexOf(account) === index;
-    });
+    this.getAccounts();
   }
 }
