@@ -25,3 +25,6 @@ td {
 .toolBar input {
   margin-right: 5px;
 }
+tfoot td {
+  border: none;
+}

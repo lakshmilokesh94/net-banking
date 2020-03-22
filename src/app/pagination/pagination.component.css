@@ -1,0 +1,12 @@
+.pagination-container {
+  margin-top: 15px;
+  float: right;
+}
+tfoot {
+  border: none;
+  float: right;
+}
+.pagination-container button,
+span {
+  margin: 10px;
+}

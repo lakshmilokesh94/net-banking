@@ -1,5 +1,6 @@
 import { Component } from "@angular/core";
 import { AccountDataService } from "./account-data.service";
+import { PaginationService } from "../pagination/pagination.service";
 
 @Component({
   selector: "account",
@@ -12,7 +13,7 @@ export class AccountComponent {
   searchValue: string = "";
   sortByField = "";
 
-  constructor(private dataSvc: AccountDataService) {}
+  constructor(private pagerSvc: PaginationService) {}
 
   getAccounts() {
     this.accounts = this.accountDetails.map(detail => {
@@ -24,7 +25,7 @@ export class AccountComponent {
   }
 
   onSearchChange() {
-    this.accountDetails = this.dataSvc.getSearchResults(
+    this.accountDetails = this.pagerSvc.getSearchResults(
       this.searchValue,
       "Transaction Details"
     );
@@ -32,7 +33,13 @@ export class AccountComponent {
 
   onSortByChanged(event) {
     this.sortByField = event.target.value;
-    this.accountDetails = this.dataSvc.getSortedResults(this.sortByField);
+    this.accountDetails = this.pagerSvc.getSortedResults(this.sortByField);
+  }
+
+  onPageChanged(args) {
+    this.accountDetails =
+      this.pagerSvc.getCurrentPageData(args.old, args.new) ||
+      this.accountDetails;
   }
 
   ngOnInit() {
@@ -41,7 +48,7 @@ export class AccountComponent {
     //   console.log(response);
     // });
 
-    this.accountDetails = this.dataSvc.getAllDetails();
+    this.accountDetails = this.pagerSvc.getCurrentPageData(1, 0);
     this.getAccounts();
   }
 }

@@ -40,6 +40,16 @@
         <td>{{account['Deposit AMT']}}</td>
         <td>{{account['Balance AMT']}}</td>
       </tr>
+      <tfoot>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>
+          <pagination (pageChange)="onPageChanged($event)"></pagination>
+        </td>
+      </tfoot>
     </table>
   </div>
 </div>

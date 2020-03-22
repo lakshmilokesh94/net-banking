@@ -1821,11 +1821,11 @@ export class AccountDataService {
   //   );
   // }
 
-  getSearchResults(searchValue, field) {
+  getSearchResults(searchValue, field, data) {
     if (!searchValue || !field) {
-      return this.data;
+      return data;
     }
-    return this.data.filter(item => {
+    return data.filter(item => {
       return (
         item[field].toLowerCase().indexOf(searchValue.toLowerCase()) !== -1
       );
@@ -1846,11 +1846,11 @@ export class AccountDataService {
     return value;
   }
 
-  getSortedResults(field) {
+  getSortedResults(field, currentData) {
     if (!field) {
-      return this.data;
+      return currentData;
     }
-    let data = JSON.parse(JSON.stringify(this.data));
+    let data = JSON.parse(JSON.stringify(currentData));
     return data.sort((a, b) => {
       var nameA = this.getValue(a, field);
       var nameB = this.getValue(b, field);
