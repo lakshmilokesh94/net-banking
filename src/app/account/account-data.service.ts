@@ -1850,7 +1850,8 @@ export class AccountDataService {
     if (!field) {
       return this.data;
     }
-    return this.data.sort((a, b) => {
+    let data = JSON.parse(JSON.stringify(this.data));
+    return data.sort((a, b) => {
       var nameA = this.getValue(a, field);
       var nameB = this.getValue(b, field);
 
