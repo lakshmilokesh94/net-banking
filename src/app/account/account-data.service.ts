@@ -1833,6 +1833,9 @@ export class AccountDataService {
   }
 
   getSortedResults(field) {
+    if (!field) {
+      return this.data;
+    }
     return this.data.sort(function(a, b) {
       var nameA = a[field].toUpperCase(); // ignore upper and lowercase
       var nameB = b[field].toUpperCase(); // ignore upper and lowercase

@@ -30,7 +30,8 @@ export class AccountComponent {
     );
   }
 
-  onSortByChanged() {
+  onSortByChanged(event) {
+    this.sortByField = event.target.value;
     this.accountDetails = this.dataSvc.getSortedResults(this.sortByField);
   }
 

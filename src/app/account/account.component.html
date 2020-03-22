@@ -14,10 +14,11 @@
   />
 
   <label>Sort By</label>
-  <select (change)="onSortByChanged()">
-    <option [(ngModel)]="sortByField" value="Date"> Date </option>
-    <option [(ngModel)]="sortByField" value="Value Date"> Value Date </option>
-    <option [(ngModel)]="sortByField" value="Balance AMT"> Balance AMT </option>
+  <select (change)="onSortByChanged($event)">
+    <option [value]=""></option>
+    <option value="Date"> Date </option>
+    <option value="Value Date"> Value Date </option>
+    <option value="Balance AMT"> Balance AMT </option>
   </select>
 
   <table>
