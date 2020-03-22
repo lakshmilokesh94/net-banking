@@ -1801,11 +1801,36 @@ export class AccountDataService {
   constructor(private httpClientObj: HttpClient) {}
 
   //getting an httpResponseError -> issue with resolving api call
-  // getAllAccountDetails() {
+  //getAllAccountDetails() {
+  //   let headers = new HttpHeaders()
+  //     .set(
+  //       "Accept",
+  //       "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9"
+  //     )
+  //     .set("Content-Type", "text")
+  //     .set("Accept-Encoding", "gzip, deflate")
+  //     .set("Accept-Language", "en-US,en;q=0.9")
+  //     .set("Cache-Control", "max-age=0")
+  //     .set("Connection", "keep-alive")
+  //     .set("Host", "starlord.hackerearth.com")
+  //     .set("Upgrade-Insecure-Requests", "1");
+
   //   return this.httpClientObj.get(
-  //     "http://starlord.hackerearth.com/bankAccount"
+  //     "http://starlord.hackerearth.com/bankAccount",
+  //     { headers: headers }
   //   );
   // }
+
+  getSearchResults(searchValue, field) {
+    if (!searchValue || !field) {
+      return this.data;
+    }
+    return this.data.filter(item => {
+      return (
+        item[field].toLowerCase().indexOf(searchValue.toLowerCase()) !== -1
+      );
+    });
+  }
 
   getAllDetails() {
     return this.data;

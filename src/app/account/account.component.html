@@ -1,8 +1,18 @@
 <h1>View Your Account Statement</h1>
-Select Account
-<select>
-  <option *ngFor="let account of accounts"> {{account}} </option>
-</select>
+
+<div>
+  <label>Select Account</label>
+  <select>
+    <option *ngFor="let account of accounts"> {{account}} </option>
+  </select>
+
+  <input
+    type="text"
+    placeholder="Search by transaction"
+    [(ngModel)]="searchValue"
+    (ngModelChange)="onSearchChange($event)"
+  />
+</div>
 
 <table>
   <thead>
