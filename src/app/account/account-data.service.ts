@@ -1832,6 +1832,21 @@ export class AccountDataService {
     });
   }
 
+  getSortedResults(field) {
+    this.data.sort(function(a, b) {
+      var nameA = a[field].toUpperCase(); // ignore upper and lowercase
+      var nameB = b[field].toUpperCase(); // ignore upper and lowercase
+      if (nameA < nameB) {
+        return -1;
+      }
+      if (nameA > nameB) {
+        return 1;
+      }
+
+      return 0;
+    });
+  }
+
   getAllDetails() {
     return this.data;
   }

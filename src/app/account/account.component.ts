@@ -10,6 +10,7 @@ export class AccountComponent {
   accountDetails: any = [];
   accounts = [];
   searchValue: string = "";
+  sortByField = "";
 
   constructor(private dataSvc: AccountDataService) {}
 
@@ -22,12 +23,15 @@ export class AccountComponent {
     });
   }
 
-  onSearchChange(event) {
-    console.log(this.searchValue);
+  onSearchChange() {
     this.accountDetails = this.dataSvc.getSearchResults(
       this.searchValue,
       "Transaction Details"
     );
+  }
+
+  onSortByChanged() {
+    this.accountDetails = this.dataSvc.getSortedResults(this.sortByField);
   }
 
   ngOnInit() {
