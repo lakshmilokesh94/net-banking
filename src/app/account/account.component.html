@@ -1,25 +1,27 @@
 <h1>View Your Account Statement</h1>
 
-<div>
-  <label>Select Account</label>
-  <select>
-    <option *ngFor="let account of accounts"> {{account}} </option>
-  </select>
-
-  <input
-    type="text"
-    placeholder="Search by transaction"
-    [(ngModel)]="searchValue"
-    (ngModelChange)="onSearchChange($event)"
-  />
-
-  <label>Sort By</label>
-  <select (change)="onSortByChanged($event)">
-    <option [value]=""></option>
-    <option value="Date"> Date </option>
-    <option value="Value Date"> Value Date </option>
-    <option value="Balance AMT"> Balance AMT </option>
-  </select>
+<div class="container">
+  <div class="accountSelectionDiv">
+    <label>Select Account: </label>
+    <select>
+      <option *ngFor="let account of accounts"> {{account}} </option>
+    </select>
+  </div>
+  <div class="toolBar">
+    <input
+      type="text"
+      placeholder="Search by transaction"
+      [(ngModel)]="searchValue"
+      (ngModelChange)="onSearchChange($event)"
+    />
+    <label>Sort By: </label>
+    <select (change)="onSortByChanged($event)">
+      <option [value]=""></option>
+      <option value="Date"> Date </option>
+      <option value="Value Date"> Value Date </option>
+      <option value="Balance AMT"> Balance AMT </option>
+    </select>
+  </div>
 
   <table>
     <thead>

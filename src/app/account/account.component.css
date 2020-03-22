@@ -6,3 +6,24 @@ table,
 td {
   border: 2px solid black;
 }
+
+.container {
+  text-align: center;
+}
+.toolBar {
+  margin: 5px;
+  padding: 5px;
+  float: left;
+}
+
+.accountSelectionDiv {
+  float: left;
+  padding: 5px;
+}
+.accountSelectionDiv select {
+  width: 200px;
+}
+
+.toolBar input {
+  margin-right: 5px;
+}
