@@ -22,23 +22,24 @@
       <option value="Balance AMT"> Balance AMT </option>
     </select>
   </div>
-
-  <table>
-    <thead>
-      <td>Date</td>
-      <td>Transaction Details</td>
-      <td>Value Date</td>
-      <td>Withdrawal AMT</td>
-      <td>Deposit AMT</td>
-      <td>Balance AMT</td>
-    </thead>
-    <tr *ngFor="let account of accountDetails">
-      <td>{{account['Date']}}</td>
-      <td>{{account['Transaction Details']}}</td>
-      <td>{{account['Value Date']}}</td>
-      <td>{{account['Withdrawal AMT']}}</td>
-      <td>{{account['Deposit AMT']}}</td>
-      <td>{{account['Balance AMT']}}</td>
-    </tr>
-  </table>
+  <div>
+    <table>
+      <thead>
+        <td>Date</td>
+        <td>Transaction Details</td>
+        <td>Value Date</td>
+        <td>Withdrawal AMT</td>
+        <td>Deposit AMT</td>
+        <td>Balance AMT</td>
+      </thead>
+      <tr *ngFor="let account of accountDetails">
+        <td>{{account['Date']}}</td>
+        <td>{{account['Transaction Details']}}</td>
+        <td>{{account['Value Date']}}</td>
+        <td>{{account['Withdrawal AMT']}}</td>
+        <td>{{account['Deposit AMT']}}</td>
+        <td>{{account['Balance AMT']}}</td>
+      </tr>
+    </table>
+  </div>
 </div>

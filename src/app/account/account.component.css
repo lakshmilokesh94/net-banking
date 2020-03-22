@@ -13,11 +13,9 @@ td {
 .toolBar {
   margin: 5px;
   padding: 5px;
-  float: left;
 }
 
 .accountSelectionDiv {
-  float: left;
   padding: 5px;
 }
 .accountSelectionDiv select {
