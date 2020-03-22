@@ -1832,13 +1832,28 @@ export class AccountDataService {
     });
   }
 
+  getValue(obj, field) {
+    let value: any;
+    switch (field) {
+      case "Date":
+      case "Value Date":
+        value = obj[field];
+        break;
+      case "Balance AMT":
+        value = obj[field];
+        break;
+    }
+    return value;
+  }
+
   getSortedResults(field) {
     if (!field) {
       return this.data;
     }
-    return this.data.sort(function(a, b) {
-      var nameA = a[field].toUpperCase(); // ignore upper and lowercase
-      var nameB = b[field].toUpperCase(); // ignore upper and lowercase
+    return this.data.sort((a, b) => {
+      var nameA = this.getValue(a, field);
+      var nameB = this.getValue(b, field);
+
       if (nameA < nameB) {
         return -1;
       }
